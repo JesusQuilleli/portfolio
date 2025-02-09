@@ -1,0 +1,57 @@
+---
+import ReactIcon from "./icons/ReactIcon.astro";
+import NodeIcon from "./icons/NodeJSIcon.astro";
+import MySQLIcon from "./icons/MySQLIcon.astro";
+
+const TAGS = {
+  REACT: {
+    name: "React",
+    class: "bg-blue-500/20",
+    icon: ReactIcon,
+  },
+  NODE: {
+    name: "Node.js",
+    class: "bg-green-500/20",
+    icon: NodeIcon,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-yellow-500/20",
+    icon: MySQLIcon,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Shop-Mg App",
+    description: "Aplicacion movil para controlar tu negocio con facilidad.",
+    link: "#",
+    github: "#",
+    image: "projects/Project_1.webp",
+    tags: [TAGS.REACT, TAGS.NODE, TAGS.MYSQL],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ image, title, description, tags }) => (
+    <article>
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-4 flex-row mb-2">
+        {tags.map((tags) => (
+          <li>
+            <span class={`flex gap-x-2 rounded-full text-xs ${tags.class} py-1 px-2`}>
+              <tags.icon class="size-4" /> {tags.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        class="rounded shadow-2xl shadow-white/10"
+        src={image}
+        alt={`Captura de pantalla del proyecto ${image}`}
+      />
+    </article>
+  ))
+}

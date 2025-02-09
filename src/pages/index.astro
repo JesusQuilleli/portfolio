@@ -1,18 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
 import Badge from "../components/Badge.astro";
 
+import Social from "../components/Social.astro";
+import LinkendIn from "../components/icons/LinkendIn.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import BriefCase from "../components/icons/Briefcase.astro";
+
+import Experience from "../components/Experience.astro";
+import CodeIcon from "../components/Code.astro";
+import Projects from "../components/Projects.astro";
 ---
 
-<Layout>
-  <main>
-    <section class="w-full lg:w-[740px] mx-auto py-44">
+<Layout
+  title="Portfolio de Jesus - Programador Junior, Desarrollador Web."
+  description="Contrata a Jesus para crear tus aplicaciones web o moviles."
+>
+  <main class="px-4">
+    <SectionContainer class="py-44 pb-32">
       <img
-        class="rounded-full w-12 h-12 mb-4"
+        class="rounded-full size-20 mb-4"
         alt="Logo Marca"
         src="./public/photo.jpg"
       />
-      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
+      <h1
+        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+      >
         Hola, soy Jesus <a
           href="https://www.linkedin.com/in/jesus-quilelli-128164304/"
           target="_blank"
@@ -23,10 +38,50 @@ import Badge from "../components/Badge.astro";
         </a>
         <div class="flex justify-center items-center"></div>
       </h1>
-      <h2 class="text-2xl opacity-80">
-        Programador Junior. Desarrollador Web, De Venezuela, En Busca de
-        Soluciones Sencillas y Efectivas Que Marquen la Diferencia.
+      <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
+        Programador Junior<span class="text-yellow-200/90">
+          y Desarrollador Web</span
+        >. <span class="text-red-100/90">De Venezuela, Amazonas</span>. <span
+          class="opacity-75"
+          >En Busca de Soluciones Sencillas y Efectivas Que Marquen la
+          Diferencia.</span
+        >
       </h2>
-    </section>
+
+      <nav class="flex gap-4 mt-4 flex-wrap">
+        <Social href="https://www.linkedin.com/in/jesus-quilelli-128164304/">
+          <LinkendIn class="size-4 md:size-6" />
+          LinkedIn
+        </Social>
+
+        <Social href="https://github.com/JesusQuilleli">
+          <GitHubIcon class="size-4 md:size-6" />
+          GitHub
+        </Social>
+
+        <Social href="https://gmail.com/">
+          <MailIcon class="size-4 md:size-6" />
+          jqcelis092@gmail.com
+        </Social>
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="mi_experiencia">
+      <h2 class="text-3xl font-semibold
+      mb-6 flex gap-x-2 items-center">
+        <BriefCase class="size-8" />
+        Experiencia Laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="mis_proyectos">
+      <h2 class="text-3xl font-semibold
+      mb-6 flex gap-x-2 items-center">
+        <CodeIcon class="size-8" />
+        Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
   </main>
 </Layout>

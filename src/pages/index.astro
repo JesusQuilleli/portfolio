@@ -8,10 +8,16 @@ import LinkendIn from "../components/icons/LinkendIn.astro";
 import GitHubIcon from "../components/icons/GitHub.astro";
 import MailIcon from "../components/icons/Mail.astro";
 import BriefCase from "../components/icons/Briefcase.astro";
+import HabilidadesIcon from "../components/icons/HabilidadesIcon.astro";
+import ContactIcon from "../components/icons/ContactIcon.astro";
+
 
 import Experience from "../components/Experience.astro";
 import CodeIcon from "../components/Code.astro";
 import Projects from "../components/Projects.astro";
+import CurriculumVitae from "../components/icons/CurriculumVitae.astro";
+import Habilidades from "../components/Habilidades.astro";
+import Contacto from "../components/Contact.astro";
 ---
 
 <Layout
@@ -63,7 +69,21 @@ import Projects from "../components/Projects.astro";
           <MailIcon class="size-4 md:size-6" />
           jqcelis092@gmail.com
         </Social>
+
+        <Social href="/cv/Jesus-Quilelli-Curriculo.pdf" target="_blank" rel="noopener noreferrer">
+          <CurriculumVitae class="size-4 md:size-6"/>
+          Descargar CV
+        </Social>
       </nav>
+    </SectionContainer>
+
+    <SectionContainer id="mis_habilidades">
+      <h2 class="text-3xl font-semibold
+      mb-6 flex gap-x-2 items-center">
+        <HabilidadesIcon class="size-8" />
+        Habilidades
+      </h2>
+      <Habilidades/>
     </SectionContainer>
 
     <SectionContainer id="mi_experiencia">
@@ -82,6 +102,15 @@ import Projects from "../components/Projects.astro";
         Proyectos
       </h2>
       <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="mi_contacto">
+      <h2 class="text-3xl font-semibold
+      mb-6 flex gap-x-2 items-center">
+        <ContactIcon class="size-8" />
+        ¡Contáctame!
+      </h2>
+      <Contacto/>
     </SectionContainer>
   </main>
 </Layout>

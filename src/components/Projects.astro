@@ -2,8 +2,19 @@
 import ReactIcon from "./icons/ReactIcon.astro";
 import NodeIcon from "./icons/NodeJSIcon.astro";
 import MySQLIcon from "./icons/MySQLIcon.astro";
+import JavaScriptIcon from "./icons/JavascriptIcon.astro";
+import HTMLIcon from "./icons/HTMLIcon.astro";
+import CSSIcon from "./icons/CSSIcon.astro";
+import CSHARTIcon from "./icons/CSHARTIcon.astro";
+import CapaOscura from "../styles/CapaOscura.astro";
+import UnityIcon from "./icons/UnityIcon.astro";
 
 const TAGS = {
+  REACT_NATIVE: {
+    name: "React Native",
+    class: "bg-blue-500/20",
+    icon: ReactIcon,
+  },
   REACT: {
     name: "React",
     class: "bg-blue-500/20",
@@ -19,39 +30,124 @@ const TAGS = {
     class: "bg-yellow-500/20",
     icon: MySQLIcon,
   },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-yellow-500/20",
+    icon: JavaScriptIcon,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-red-500/20",
+    icon: HTMLIcon,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-blue-500/20",
+    icon: CSSIcon,
+  },
+  CSHART: {
+    name: "C#",
+    class: "bg-blue-500/20",
+    icon: CSHARTIcon,
+  },
+  UNITY: {
+    name: "Unity",
+    class: "bg-blue-500/20",
+    icon: UnityIcon,
+  },
 };
 
 const PROJECTS = [
   {
     title: "Shop-Mg App",
-    description: "Aplicacion movil para controlar tu negocio con facilidad.",
-    link: "#",
-    github: "#",
+    description: "Aplicación movil para controlar tu negocio con facilidad.",
+    link: "",
+    github: "https://github.com/JesusQuilleli/my-app-store",
     image: "projects/Project_1.webp",
-    tags: [TAGS.REACT, TAGS.NODE, TAGS.MYSQL],
+    tags: [TAGS.REACT_NATIVE, TAGS.NODE, TAGS.MYSQL],
+  },
+  {
+    title: "Gastick App Web",
+    description: "Aplicación web para controlar tus gastos personales.",
+    link: "",
+    github: "https://github.com/JesusQuilleli/Gastick",
+    image: "projects/Project_2.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
+  },
+  {
+    title: "Tic Tac Toe",
+    description: "Juego de Tic Tac Toe - Aprendizaje Curso de midudev.",
+    link: "https://6770682293a9020b410f2233--gleaming-kangaroo-0bc6ce.netlify.app/",
+    github: "https://github.com/JesusQuilleli/tic-tac-toe-practice",
+    image: "projects/Project_3.webp",
+    tags: [TAGS.REACT, TAGS.CSS],
+  },
+  {
+    title: "Todo App",
+    description: "Todo App - Aprendizaje Autodidacta.",
+    link: "",
+    github: "https://github.com/JesusQuilleli/tic-tac-toe-practice",
+    image: "projects/Project_5.webp",
+    tags: [TAGS.REACT, TAGS.CSS],
+  },
+  {
+    title: "Juego de Aventura",
+    description:
+      "Un pequeño juego de aventura 2D que realice en colaboración con dos amigos.",
+    link: "",
+    github: "",
+    image: "projects/Project_4.webp",
+    tags: [TAGS.CSHART, TAGS.UNITY],
   },
 ];
 ---
 
 {
-  PROJECTS.map(({ image, title, description, tags }) => (
-    <article>
+  PROJECTS.map(({ image, title, description, tags, github, link }) => (
+    <article class="relative group mt-5">
       <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
       <p class="text-lg mb-4 text-pretty">{description}</p>
       <ul class="flex gap-x-4 flex-row mb-2">
         {tags.map((tags) => (
           <li>
-            <span class={`flex gap-x-2 rounded-full text-xs ${tags.class} py-1 px-2`}>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tags.class} py-1 px-2`}
+            >
               <tags.icon class="size-4" /> {tags.name}
             </span>
           </li>
         ))}
+
+        {link && link.trim() !== "" && (
+          <li>
+            <a
+              href={link}
+              target="_blank"
+              class="flex gap-x-2 rounded-full text-xs bg-blue-500/20 text-white py-1 px-3 hover:bg-blue-600 transition"
+            >
+              🌐 Ver el Juego
+            </a>
+          </li>
+        )}
       </ul>
-      <img
-        class="rounded shadow-2xl shadow-white/10"
-        src={image}
-        alt={`Captura de pantalla del proyecto ${image}`}
-      />
+
+      <div class="relative rounded shadow-2xl shadow-white/10 overflow-hidden">
+        <img
+          class={`w-full rounded transition duration-300 ${github && github.trim() !== "" ? "group-hover:opacity-50" : ""}`}
+          src={image}
+          alt={`Captura de pantalla del proyecto ${title}`}
+        />
+
+        {github && github.trim() !== "" && (
+          <a
+            href={github}
+            target="_blank"
+            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 bg-black/50"
+          >
+            <CapaOscura />
+          </a>
+        )}
+      </div>
     </article>
   ))
 }

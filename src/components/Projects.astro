@@ -8,6 +8,8 @@ import CSSIcon from "./icons/CSSIcon.astro";
 import CSHARTIcon from "./icons/CSHARTIcon.astro";
 import CapaOscura from "../styles/CapaOscura.astro";
 import UnityIcon from "./icons/UnityIcon.astro";
+import PhpIcon from "./icons/PhpIcon.astro";
+import PostgreSQL from "./icons/PostgreSQL.astro";
 
 const TAGS = {
   REACT_NATIVE: {
@@ -55,6 +57,16 @@ const TAGS = {
     class: "bg-blue-500/20",
     icon: UnityIcon,
   },
+  PHP: {
+    name: "PHP",
+    class: "bg-blue-500/20",
+    icon: PhpIcon,
+  },
+  PSG: {
+    name: "PostgreSQL",
+    class: "bg-blue-500/20",
+    icon: PostgreSQL,
+  },
 };
 
 const PROJECTS = [
@@ -98,6 +110,15 @@ const PROJECTS = [
     github: "",
     image: "projects/Project_4.webp",
     tags: [TAGS.CSHART, TAGS.UNITY],
+  },
+  {
+    title: "Gestor de Manuales",
+    description:
+      "Una app web Empresarial, que permite tener un repositorio de manuales de instalacion de aplicaciones usadas en la empresa.",
+    link: "",
+    github: "",
+    image: "projects/Project_6.png",
+    tags: [TAGS.PHP, TAGS.PSG],
   },
 ];
 ---
